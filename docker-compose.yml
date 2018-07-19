@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  dropbox-cron-backup:
+    build: .
+    environment:
+      - OAUTH_ACCESS_TOKEN=${OAUTH_ACCESS_TOKEN}
+    image: thelebster/dropbox-cron-backup
+    hostname: dropbox-cron-backup
+    restart: always
+    container_name: dropbox-cron-backup
+    volumes:
+      - ./config:/config
